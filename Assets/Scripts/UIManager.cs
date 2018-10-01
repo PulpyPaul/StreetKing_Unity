@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
+	public List<GameObject> buyableItems;
+	public List<GameObject> purchasedItems;
+	public List<GameObject> sellItems;
+	public List<GameObject> buyableCustItems;
+	public List<GameObject> custItems;
+
+	public GameObject buyableItem;
+	public GameObject purchasedItem;
+
+
 	// Home Screen Items
 	public GameObject sell_Screen_Btn;
 	public GameObject buy_Screen_Btn;
@@ -32,24 +42,38 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
+	// ------------------------------ HOME SCREEN FUNCTIONS -------------------------
+
+	public void ToggleHomeButtons() {
+		sell_Screen_Btn.SetActive (!sell_Screen_Btn.activeSelf);
+		buy_Screen_Btn.SetActive (!buy_Screen_Btn.activeSelf);
+		cust_Screen_Btn.SetActive (!cust_Screen_Btn.activeSelf);
+	}
+
+	// ----------------------------- BUY SCREEN Functions -------------------------
+	public void AddPurchasedItem(){
+
+	}
+
+	public void RemovePurchasedItem(){
+
+	}
+
+	public void PositionPurchasedItems(){
+
+	}
+
+	public void CreateBuyableItems(){
+
+	}
+
+	public void CreatePurchaseItems(){
+
+	}
+
 	public void SetupBuyScreen() {
 		ToggleHomeButtons ();
 		buy_Menu.SetActive (true);
-	}
-
-	public void SetupSellScreen(){
-		ToggleHomeButtons ();
-		sell_Menu.SetActive (true);
-	}
-
-	public void SetupCustScreen(){
-		ToggleHomeButtons ();
-		cust_Menu.SetActive (true);
-	}
-
-	public void ReturnFromSell() {
-		ToggleHomeButtons ();
-		sell_Menu.SetActive (false);
 	}
 
 	public void ReturnFromBuy() {
@@ -57,14 +81,62 @@ public class UIManager : MonoBehaviour {
 		buy_Menu.SetActive (false);
 	}
 
+	// ---------------------------------- SELL SCREEN FUNCTIONS ------------------------------------
+
+	public void SetupSellScreen(){
+		ToggleHomeButtons ();
+		sell_Menu.SetActive (true);
+	}
+
+	public void ReturnFromSell() {
+		ToggleHomeButtons ();
+		sell_Menu.SetActive (false);
+	}
+
+	public void PositionSellItems() {
+		
+	}
+
+	public void StartRefresh() {
+	
+	}
+
+	public void RefreshValues() {
+	
+	}
+
+	public void RemoveSoldItem() {
+	
+	}
+
+	// --------------------------------- CUSTOM SCREEN FUNCTIONS ----------------------------------
+	public void SetupCustScreen(){
+		ToggleHomeButtons ();
+		cust_Menu.SetActive (true);
+	}
+
 	public void ReturnFromCust(){
 		ToggleHomeButtons ();
 		cust_Menu.SetActive (false);
 	}
 
-	public void ToggleHomeButtons() {
-		sell_Screen_Btn.SetActive (!sell_Screen_Btn.activeSelf);
-		buy_Screen_Btn.SetActive (!buy_Screen_Btn.activeSelf);
-		cust_Screen_Btn.SetActive (!cust_Screen_Btn.activeSelf);
+	public void CreateBuyableCustItems() {
+		
+	}
+
+	public void CreateCustItems() {
+		
+	}
+
+	public void PositionCustItems() {
+	
+	}
+
+	public void AddCustItem() {
+	
+	}
+
+	public void RemoveCustItem() {
+		
 	}
 }
