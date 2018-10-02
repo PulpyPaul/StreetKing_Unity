@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour {
 	public GameObject buyableItem;
 	public GameObject purchasedItem;
 
+	public GameObject sellItemPrefab;
+
+	public GameObject dividerPrefab;
 
 	// Home Screen Items
 	public GameObject sell_Screen_Btn;
@@ -32,9 +35,13 @@ public class UIManager : MonoBehaviour {
 	public GameObject cust_Menu;
 	public GameObject exit_Cust_Btn;
 
+	public GameObject buyMenuContent;
+	public GameObject sellMenuContent;
+
 	// Use this for initialization
 	void Start () {
-		
+		buyableItems = new List<GameObject> ();
+		sellItems = new List<GameObject> ();
 	}
 	
 	// Update is called once per frame
@@ -59,21 +66,28 @@ public class UIManager : MonoBehaviour {
 
 	}
 
-	public void PositionPurchasedItems(){
-
-	}
-
 	public void CreateBuyableItems(){
 
+		for (int i = 0; i < 5; i++) {
+			GameObject testBuyable = Instantiate (buyableItem, buyMenuContent.transform) as GameObject;
+			buyableItems.Add (testBuyable);
+		}
 	}
 
 	public void CreatePurchaseItems(){
 
+		for (int i = 0; i < 5; i++) {
+			GameObject testPurchased = Instantiate (purchasedItem, buyMenuContent.transform) as GameObject;
+			purchasedItems.Add (testPurchased);
+		}
 	}
 
 	public void SetupBuyScreen() {
 		ToggleHomeButtons ();
 		buy_Menu.SetActive (true);
+		CreateBuyableItems ();
+		CreateDivider ();
+		CreatePurchaseItems ();
 	}
 
 	public void ReturnFromBuy() {
@@ -81,20 +95,25 @@ public class UIManager : MonoBehaviour {
 		buy_Menu.SetActive (false);
 	}
 
+	void CreateDivider() {
+		GameObject divider = Instantiate (dividerPrefab, buyMenuContent.transform) as GameObject;
+	}
+
 	// ---------------------------------- SELL SCREEN FUNCTIONS ------------------------------------
 
 	public void SetupSellScreen(){
 		ToggleHomeButtons ();
 		sell_Menu.SetActive (true);
+
+		for (int i = 0; i < 5; i++) {
+			GameObject testSell = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
+			buyableItems.Add (testSell);
+		}
 	}
 
 	public void ReturnFromSell() {
 		ToggleHomeButtons ();
 		sell_Menu.SetActive (false);
-	}
-
-	public void PositionSellItems() {
-		
 	}
 
 	public void StartRefresh() {
