@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114423596977218502}
   - component: {fileID: 114342911446505948}
   m_Layer: 5
-  m_Name: Price
+  m_Name: Price_Btn_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114957420022419824}
   - component: {fileID: 114931819377422014}
   m_Layer: 5
-  m_Name: Price (2)
+  m_Name: Price_Btn_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 114358755288225828}
   - component: {fileID: 114736269694978496}
   m_Layer: 5
-  m_Name: Price (1)
+  m_Name: Price_Btn_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,6 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224958817141795794}
+  - component: {fileID: 114143088951671548}
   m_Layer: 5
   m_Name: Sell_Item_Prefab
   m_TagString: Untagged
@@ -165,6 +166,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114143088951671548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817723412466362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18123a6c947ec47b38d5c3fb94a2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114327829649501192
 MonoBehaviour:
   m_ObjectHideFlags: 1

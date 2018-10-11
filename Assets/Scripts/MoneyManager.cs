@@ -9,15 +9,17 @@ public class MoneyManager : MonoBehaviour {
 	public static MoneyManager instance = null;
 
 	void Awake() {
-		if (instance = null)
+		if (instance == null)
 			instance = this;
 		else if (instance != this)
 			Destroy (gameObject);
+
+		totalMoney = 100;
 	}
 
 	// Use this for initialization
 	void Start () {
-		totalMoney = 100;
+		
 	}
 	
 	// Update is called once per frame

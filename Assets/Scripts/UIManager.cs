@@ -7,14 +7,11 @@ public class UIManager : MonoBehaviour {
 
 	public List<GameObject> buyableItems;
 	public List<GameObject> purchasedItems;
-	public List<GameObject> sellItems;
 	public List<GameObject> buyableCustItems;
 	public List<GameObject> custItems;
 
 	public GameObject buyableItem;
 	public GameObject purchasedItem;
-
-	public GameObject sellItemPrefab;
 
 	public GameObject dividerPrefab;
 
@@ -24,6 +21,8 @@ public class UIManager : MonoBehaviour {
 	public GameObject cust_Screen_Btn;
 
 	// Sell Screen Items
+	public List<GameObject> sellItems;
+	public GameObject sellItemPrefab;
 	public GameObject sell_Menu;
 	public GameObject exit_Sell_Btn;
 
@@ -37,6 +36,16 @@ public class UIManager : MonoBehaviour {
 
 	public GameObject buyMenuContent;
 	public GameObject sellMenuContent;
+
+	public static UIManager instance = null;
+
+	void Awake() {
+		if (instance == null) {
+			instance = this;
+		} else if (instance != this) {
+			Destroy (gameObject);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -105,9 +114,15 @@ public class UIManager : MonoBehaviour {
 		ToggleHomeButtons ();
 		sell_Menu.SetActive (true);
 
-		for (int i = 0; i < 5; i++) {
-			GameObject testSell = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
-			buyableItems.Add (testSell);
+		for (int i = 0; i < InventoryManager.instance.inventory.Count; i++) {
+			GameObject sell_Prefab = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
+			Button[] sell_Btns = sell_Prefab.GetComponentsInChildren<Button> ();
+
+			for (int j = 0; j < sell_Btns.Length; j++){
+				sell_Btns [j].GetComponentInChildren<Text> ().text = Random.Range (InventoryManager.instance.inventory [i].SellLow, InventoryManager.instance.inventory [i].SellHigh + 1).ToString();
+			}
+
+			sellItems.Add (sell_Prefab);
 		}
 	}
 
@@ -116,16 +131,18 @@ public class UIManager : MonoBehaviour {
 		sell_Menu.SetActive (false);
 	}
 
-	public void StartRefresh() {
-	
-	}
-
 	public void RefreshValues() {
-	
+		for (int i = 0; i < sellItems.Count; i++) {
+			Button[] sell_Btns = sellItems[i].GetComponentsInChildren<Button> ();
+
+			for (int j = 0; j < sell_Btns.Length; j++){
+				sell_Btns [j].GetComponentInChildren<Text> ().text = Random.Range (InventoryManager.instance.inventory [i].SellLow, InventoryManager.instance.inventory [i].SellHigh + 1).ToString();
+			}
+		}
 	}
 
 	public void RemoveSoldItem() {
-	
+		
 	}
 
 	// --------------------------------- CUSTOM SCREEN FUNCTIONS ----------------------------------
