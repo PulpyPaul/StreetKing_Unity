@@ -27,8 +27,13 @@ public class MoneyManager : MonoBehaviour {
 		
 	}
 
-	public void AddFunds() {
-		
+	/// <summary>
+	/// Adds funds to the total amount of cash for the player
+	/// </summary>
+	/// <param name="amount">Amount.</param>
+	public void AddFunds(int amount) {
+		totalMoney += amount;
+		UIManager.instance.RefreshMoney ();
 	}
 
 	public void RemoveFunds() {

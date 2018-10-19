@@ -23,9 +23,6 @@ public class InventoryManager : MonoBehaviour {
 		Item testItem3 = new Item (100, 600, 300);
 		Item testItem4 = new Item (200, 800, 400);
 
-		Debug.Log(testItem1.GetInstanceID ());
-		Debug.Log (testItem2.GetInstanceID ());
-
 		inventory.Add (testItem1);
 		inventory.Add (testItem2);
 		inventory.Add (testItem3);

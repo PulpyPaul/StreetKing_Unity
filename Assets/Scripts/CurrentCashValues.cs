@@ -11,11 +11,6 @@ public class CurrentCashValues : MonoBehaviour {
 	void OnEnable() {
 		updateCash ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void updateCash() {
 		cashText = this.GetComponent<Text> ();

@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour {
 	public GameObject sellItemPrefab;
 	public GameObject sell_Menu;
 	public GameObject exit_Sell_Btn;
+	public GameObject currMoney;
+
+	bool sellItemsCreated;
 
 	// Buy Screen Items
 	public GameObject buy_Menu;
@@ -51,6 +54,7 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		buyableItems = new List<GameObject> ();
 		sellItems = new List<GameObject> ();
+		sellItemsCreated = false;
 	}
 	
 	// Update is called once per frame
@@ -114,15 +118,8 @@ public class UIManager : MonoBehaviour {
 		ToggleHomeButtons ();
 		sell_Menu.SetActive (true);
 
-		for (int i = 0; i < InventoryManager.instance.inventory.Count; i++) {
-			GameObject sell_Prefab = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
-			Button[] sell_Btns = sell_Prefab.GetComponentsInChildren<Button> ();
-
-			for (int j = 0; j < sell_Btns.Length; j++){
-				sell_Btns [j].GetComponentInChildren<Text> ().text = Random.Range (InventoryManager.instance.inventory [i].SellLow, InventoryManager.instance.inventory [i].SellHigh + 1).ToString();
-			}
-
-			sellItems.Add (sell_Prefab);
+		if (!sellItemsCreated) {
+			CreateSellItems ();
 		}
 	}
 
@@ -141,8 +138,29 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
+	public void RefreshMoney() {
+		currMoney.GetComponent<Text> ().text = "Total Cash: $" +MoneyManager.instance.TotalMoney.ToString();
+	}
+
 	public void RemoveSoldItem() {
 		
+	}
+
+	void CreateSellItems() {
+		for (int i = 0; i < InventoryManager.instance.inventory.Count; i++) {
+			GameObject sell_Prefab = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
+			Button[] sell_Btns = sell_Prefab.GetComponentsInChildren<Button> ();
+
+			for (int j = 0; j < sell_Btns.Length; j++){
+				sell_Btns [j].GetComponentInChildren<Text> ().text = Random.Range (InventoryManager.instance.inventory [i].SellLow, InventoryManager.instance.inventory [i].SellHigh + 1).ToString();
+			}
+
+			sell_Prefab.GetComponent<SellItem> ().ItemID = InventoryManager.instance.inventory [i].ID;
+
+			sellItems.Add (sell_Prefab);
+		}
+
+		sellItemsCreated = true;
 	}
 
 	// --------------------------------- CUSTOM SCREEN FUNCTIONS ----------------------------------

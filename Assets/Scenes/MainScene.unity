@@ -3759,6 +3759,7 @@ MonoBehaviour:
     type: 2}
   sell_Menu: {fileID: 382051002}
   exit_Sell_Btn: {fileID: 913523817}
+  currMoney: {fileID: 2001173132}
   buy_Menu: {fileID: 647555212}
   exit_Buy_Btn: {fileID: 1543950949}
   cust_Menu: {fileID: 1823788150}
