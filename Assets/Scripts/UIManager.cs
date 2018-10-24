@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour {
 	public GameObject sell_Menu;
 	public GameObject exit_Sell_Btn;
 	public GameObject currMoney;
+	public GameObject sellDynamics;
 
 	bool sellItemsCreated;
 
@@ -172,10 +173,11 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void ClearSellMenu() {
-		for (int i = 0; i < buy_Menu.transform.childCount; i++) {
-			GameObject.Destroy(buy_Menu.transform.GetChild(i).gameObject);
+		for (int i = 0; i < sellDynamics.transform.childCount; i++) {
+			GameObject.Destroy(sellDynamics.transform.GetChild(i).gameObject);
 		}
 	}
+
 
 	// --------------------------------- CUSTOM SCREEN FUNCTIONS ----------------------------------
 	public void SetupCustScreen(){
