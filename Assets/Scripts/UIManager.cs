@@ -33,6 +33,8 @@ public class UIManager : MonoBehaviour {
 	public GameObject buy_Menu;
 	public GameObject exit_Buy_Btn;
 
+	bool buyItemsCreated;
+
 	// Customize Screen Items
 	public GameObject cust_Menu;
 	public GameObject exit_Cust_Btn;
@@ -55,11 +57,7 @@ public class UIManager : MonoBehaviour {
 		buyableItems = new List<GameObject> ();
 		sellItems = new List<GameObject> ();
 		sellItemsCreated = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		buyItemsCreated = false;
 	}
 
 	// ------------------------------ HOME SCREEN FUNCTIONS -------------------------
@@ -85,6 +83,8 @@ public class UIManager : MonoBehaviour {
 			GameObject testBuyable = Instantiate (buyableItem, buyMenuContent.transform) as GameObject;
 			buyableItems.Add (testBuyable);
 		}
+
+		buyItemsCreated = true;
 	}
 
 	public void CreatePurchaseItems(){
@@ -98,9 +98,12 @@ public class UIManager : MonoBehaviour {
 	public void SetupBuyScreen() {
 		ToggleHomeButtons ();
 		buy_Menu.SetActive (true);
-		CreateBuyableItems ();
-		CreateDivider ();
-		CreatePurchaseItems ();
+
+		if (!buyItemsCreated) {
+			CreateBuyableItems ();
+			CreateDivider ();
+			CreatePurchaseItems ();
+		}
 	}
 
 	public void ReturnFromBuy() {
@@ -119,6 +122,10 @@ public class UIManager : MonoBehaviour {
 		sell_Menu.SetActive (true);
 
 		if (!sellItemsCreated) {
+			CreateSellItems ();
+		} else if (sellItems.Count != InventoryManager.instance.inventory.Count) {
+			sellItems.Clear ();
+			ClearSellMenu ();
 			CreateSellItems ();
 		}
 	}
@@ -147,6 +154,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void CreateSellItems() {
+		
 		for (int i = 0; i < InventoryManager.instance.inventory.Count; i++) {
 			GameObject sell_Prefab = Instantiate (sellItemPrefab, sellMenuContent.transform) as GameObject;
 			Button[] sell_Btns = sell_Prefab.GetComponentsInChildren<Button> ();
@@ -161,6 +169,12 @@ public class UIManager : MonoBehaviour {
 		}
 
 		sellItemsCreated = true;
+	}
+
+	void ClearSellMenu() {
+		for (int i = 0; i < buy_Menu.transform.childCount; i++) {
+			GameObject.Destroy(buy_Menu.transform.GetChild(i).gameObject);
+		}
 	}
 
 	// --------------------------------- CUSTOM SCREEN FUNCTIONS ----------------------------------

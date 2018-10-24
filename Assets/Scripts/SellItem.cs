@@ -21,7 +21,7 @@ public class SellItem : MonoBehaviour {
 	}
 
 	void Purchased(Button button) {
-
+		
 		// Adds funds to total money
 		MoneyManager.instance.AddFunds (int.Parse(button.GetComponentInChildren<Text> ().text));
 

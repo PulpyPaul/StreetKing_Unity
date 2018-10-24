@@ -36,12 +36,16 @@ public class MoneyManager : MonoBehaviour {
 		UIManager.instance.RefreshMoney ();
 	}
 
-	public void RemoveFunds() {
-	
+	public void RemoveFunds(int amount) {
+		totalMoney -= amount;
 	}
 
-	public void CheckFunds() {
-		
+	public bool CheckFunds(int amount) {
+		if (amount <= totalMoney) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public int TotalMoney {
