@@ -11,14 +11,17 @@ public class Item : MonoBehaviour {
 	int sellHigh;
 	int sellLow;
 
+    float totalTime;
+    
 	bool isCustom;
 
 	Guid id;
 
-	public Item(int cost, int sellHigh, int sellLow){
+	public Item(int cost, int sellHigh, int sellLow, float totalTime){
 		this.cost = cost;
 		this.sellHigh = sellHigh;
 		this.sellLow = sellLow;
+        this.totalTime = totalTime;
 		id = Guid.NewGuid ();
 	}
 

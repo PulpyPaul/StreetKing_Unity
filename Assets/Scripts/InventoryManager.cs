@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour {
 
 	public List<Item> inventory;
 	public List<Item> buyableItems;
+    public List<Item> purchasedItems;
 
 	public static InventoryManager instance = null;
 

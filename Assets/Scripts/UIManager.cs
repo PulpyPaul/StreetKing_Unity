@@ -10,11 +10,6 @@ public class UIManager : MonoBehaviour {
 	public List<GameObject> buyableCustItems;
 	public List<GameObject> custItems;
 
-	public GameObject buyableItem;
-	public GameObject purchasedItem;
-
-	public GameObject dividerPrefab;
-
 	// Home Screen Items
 	public GameObject sell_Screen_Btn;
 	public GameObject buy_Screen_Btn;
@@ -33,8 +28,11 @@ public class UIManager : MonoBehaviour {
 	// Buy Screen Items
 	public GameObject buy_Menu;
 	public GameObject exit_Buy_Btn;
+    public GameObject buyableItem;
+    public GameObject purchasedItem;
+    public GameObject dividerPrefab;
 
-	bool buyItemsCreated;
+    bool buyItemsCreated;
 
 	// Customize Screen Items
 	public GameObject cust_Menu;
@@ -70,9 +68,11 @@ public class UIManager : MonoBehaviour {
 	}
 
 	// ----------------------------- BUY SCREEN Functions -------------------------
-	public void AddPurchasedItem(){
-
-	}
+	public void AddPurchasedItem(Item item){
+        GameObject purchItem = Instantiate(purchasedItem, buyMenuContent.transform) as GameObject;
+        Debug.Log(purchItem.GetComponentInChildren<Text>().text);
+        purchasedItems.Add(purchItem);
+    }
 
 	public void RemovePurchasedItem(){
 

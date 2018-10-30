@@ -36,21 +36,46 @@ public class BuyableItem : MonoBehaviour {
 		Text[] subTexts = button.gameObject.GetComponentsInChildren<Text> ();
 
 		int cost = 0;
-
-		// gets the cost value of the item
+        float timeToGet = 0.0f;
+		
 		foreach (Text text in subTexts) {
 			if (text.name == "Cost") {
 				cost = int.Parse(text.text.Substring (1));
 				break;
 			}
+
+            if (text.name == "Time") {
+                int stringLength = text.text.Length;
+                string timeString = text.text.Substring(0, text.text.Length - 1);
+                string timeType = text.text.Substring(text.text.Length - 1);
+
+                timeToGet = float.Parse(timeString);
+
+                switch (timeType) {
+                    case "s":
+                        break;
+                    case "m":
+                        timeToGet = (timeToGet * 60);
+                        break;
+                    case "h":
+                        timeToGet = (timeToGet * 60 * 60);
+                        break;
+                    default:
+                        break;
+
+                }
+                
+            }
 		}
 
 		// checks funds to see if user can purchase
 		if (MoneyManager.instance.CheckFunds (cost)) {
 			MoneyManager.instance.RemoveFunds (cost);
-			Item item = new Item (cost, cost * 5, cost * 10);
-			InventoryManager.instance.inventory.Add (item);
-			Destroy (button.gameObject);
+
+            Item item = new Item (cost, cost * 5, cost * 10, timeToGet);
+            InventoryManager.instance.purchasedItems.Add(item);
+            UIManager.instance.AddPurchasedItem(item);
+			//Destroy (button.gameObject);
 		} else {
 			return;
 		}
