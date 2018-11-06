@@ -6,23 +6,25 @@ using System;
 public class Item : MonoBehaviour {
 
 	string name;
+	string timeString;
 
 	int cost;
 	int sellHigh;
 	int sellLow;
 
     float totalTime;
+	float timeLeft;
     
 	bool isCustom;
 
 	Guid id;
 
-	public Item(int cost, int sellHigh, int sellLow, float totalTime){
+	public Item(int cost, int sellHigh, int sellLow, string timeString){
 		this.cost = cost;
 		this.sellHigh = sellHigh;
 		this.sellLow = sellLow;
-        this.totalTime = totalTime;
-		id = Guid.NewGuid ();
+		this.timeString = timeString;
+        id = Guid.NewGuid ();
 	}
 
 	// Use this for initialization
@@ -54,6 +56,27 @@ public class Item : MonoBehaviour {
 	public int SellLow {
 		get {
 			return sellLow;
+		}
+	}
+
+	public float TotalTime {
+		get { 
+			return totalTime;
+		}
+	}
+
+	public float TimeLeft {
+		get {
+			return timeLeft;
+		}
+		set { 
+			timeLeft = value;
+		}
+	}
+
+	public string TimeString {
+		get { 
+			return timeString;
 		}
 	}
 

@@ -70,13 +70,10 @@ public class UIManager : MonoBehaviour {
 	// ----------------------------- BUY SCREEN Functions -------------------------
 	public void AddPurchasedItem(Item item){
         GameObject purchItem = Instantiate(purchasedItem, buyMenuContent.transform) as GameObject;
-        Debug.Log(purchItem.GetComponentInChildren<Text>().text);
-        purchasedItems.Add(purchItem);
+		//purchItem.GetComponent<PurchasedItem> ().ID = item.ID;
+		purchItem.GetComponent<PurchasedItem> ().StartTimer (item);
+		purchasedItems.Add(purchItem);
     }
-
-	public void RemovePurchasedItem(){
-
-	}
 
 	public void CreateBuyableItems(){
 
@@ -90,10 +87,10 @@ public class UIManager : MonoBehaviour {
 
 	public void CreatePurchaseItems(){
 
-		for (int i = 0; i < 5; i++) {
+		/*for (int i = 0; i < 5; i++) {
 			GameObject testPurchased = Instantiate (purchasedItem, buyMenuContent.transform) as GameObject;
 			purchasedItems.Add (testPurchased);
-		}
+		}*/
 	}
 
 	public void SetupBuyScreen() {
