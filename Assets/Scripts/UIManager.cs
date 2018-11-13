@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		buyableItems = new List<GameObject> ();
+		//buyableItems = new List<GameObject> ();
 		sellItems = new List<GameObject> ();
 		sellItemsCreated = false;
 		buyItemsCreated = false;
@@ -77,10 +77,9 @@ public class UIManager : MonoBehaviour {
 
 	public void CreateBuyableItems(){
 
-		for (int i = 0; i < 5; i++) {
-			GameObject testBuyable = Instantiate (buyableItem, buyMenuContent.transform) as GameObject;
-			buyableItems.Add (testBuyable);
-		}
+        for (int i = 0; i < buyableItems.Count; i++) {
+			GameObject buyable = Instantiate (buyableItems[i], buyMenuContent.transform) as GameObject;
+         }
 
 		buyItemsCreated = true;
 	}

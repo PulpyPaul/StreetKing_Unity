@@ -51,10 +51,9 @@ public class BuyableItem : MonoBehaviour {
 		// checks funds to see if user can purchase and creates new item in the inventory
 		if (MoneyManager.instance.CheckFunds (cost)) {
 			MoneyManager.instance.RemoveFunds (cost);
-			Item item = new Item (cost, cost * 5, cost * 10, timeString);
+			Item item = new Item (cost, (int)(cost * 1.2f), (int)(cost * 2.0f), timeString);
 			InventoryManager.instance.purchasedItems.Add(item);
 			UIManager.instance.AddPurchasedItem(item);
-			//Destroy (button.gameObject);
 		} else {
 			return;
 		}
