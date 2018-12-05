@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour {
     public GameObject buyableItem;
     public GameObject purchasedItem;
     public GameObject dividerPrefab;
+	public CurrentCashValues buyMenuCash;
 
     bool buyItemsCreated;
 
@@ -69,10 +70,10 @@ public class UIManager : MonoBehaviour {
 
 	// ----------------------------- BUY SCREEN Functions -------------------------
 	public void AddPurchasedItem(Item item){
-        GameObject purchItem = Instantiate(purchasedItem, buyMenuContent.transform) as GameObject;
-		//purchItem.GetComponent<PurchasedItem> ().ID = item.ID;
+		GameObject purchItem = Instantiate(purchasedItem, buyMenuContent.transform) as GameObject;
 		purchItem.GetComponent<PurchasedItem> ().StartTimer (item);
 		purchasedItems.Add(purchItem);
+		buyMenuCash.updateCash ();
     }
 
 	public void CreateBuyableItems(){

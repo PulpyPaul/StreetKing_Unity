@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour {
 		}
 
 		inventory = new List<Item> ();
+		purchasedItems = new List<Item> ();
 	}
 
 	// Use this for initialization

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Item : MonoBehaviour {
+public class Item {
 
 	string name;
 	string timeString;
@@ -19,22 +19,13 @@ public class Item : MonoBehaviour {
 
 	Guid id;
 
-	public Item(int cost, int sellHigh, int sellLow, string timeString){
+	public Item(int cost, int sellHigh, int sellLow, string timeString, string name){
 		this.cost = cost;
 		this.sellHigh = sellHigh;
 		this.sellLow = sellLow;
 		this.timeString = timeString;
+		this.name = name;
         id = Guid.NewGuid ();
-	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void CheckCustom() {
@@ -83,6 +74,12 @@ public class Item : MonoBehaviour {
 	public Guid ID {
 		get { 
 			return id;
+		}
+	}
+
+	public string Name {
+		get { 
+			return name;
 		}
 	}
 }

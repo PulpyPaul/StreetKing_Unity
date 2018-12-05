@@ -24,7 +24,7 @@ public class BuyableItem : MonoBehaviour {
 	/// Gets reference to the button and hooks up an onclick event
 	/// </summary>
 	void SetupPurchaseBtn() {
-		purchaseBtn = GetComponent<Button> ();
+		purchaseBtn = GetComponentInChildren<Button>();
 		purchaseBtn.onClick.AddListener (() => Purchase(purchaseBtn));
 	}
 
@@ -33,10 +33,12 @@ public class BuyableItem : MonoBehaviour {
 	/// </summary>
 	/// <param name="button">Button.</param>
 	void Purchase(Button button) {
-		Text[] subTexts = button.gameObject.GetComponentsInChildren<Text> ();
+
+		Text[] subTexts = button.transform.parent.GetComponentsInChildren<Text> ();
 
 		int cost = 0;
 		string timeString = "";
+		string name = "";
 		
 		foreach (Text text in subTexts) {
 			if (text.name == "Cost") {
@@ -46,12 +48,16 @@ public class BuyableItem : MonoBehaviour {
             if (text.name == "Time") {
 				timeString = text.text;
             }
+
+			if (text.name == "Name") {
+				name = text.text;
+			}
 		}
 
 		// checks funds to see if user can purchase and creates new item in the inventory
 		if (MoneyManager.instance.CheckFunds (cost)) {
 			MoneyManager.instance.RemoveFunds (cost);
-			Item item = new Item (cost, (int)(cost * 1.2f), (int)(cost * 2.0f), timeString);
+			Item item = new Item (cost, (int)(cost * 1.2f), (int)(cost * 2.0f), timeString, name);
 			InventoryManager.instance.purchasedItems.Add(item);
 			UIManager.instance.AddPurchasedItem(item);
 		} else {

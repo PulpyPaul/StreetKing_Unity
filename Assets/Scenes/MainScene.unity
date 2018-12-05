@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 57950617}
   - component: {fileID: 57950616}
   m_Layer: 5
-  m_Name: Cash
+  m_Name: BuyCash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,12 +265,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1721355269}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 391.49994, y: -95.30835}
-  m_SizeDelta: {x: 506.8, y: 67.9}
+  m_AnchoredPosition: {x: 372.84988, y: -87.4}
+  m_SizeDelta: {x: 506.8, y: 78.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57950616
 MonoBehaviour:
@@ -718,9 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c1a34b6f6c7954487e90784d3da0a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: []
-  buyableItems: []
-  purchasedItems: []
 --- !u!4 &182974547
 Transform:
   m_ObjectHideFlags: 0
@@ -1676,8 +1673,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a020a1c4790eb2042a9a03930fbd7c30, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2295,6 +2292,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 913523817}
   m_CullTransparentMesh: 0
+--- !u!1 &958450403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958450404}
+  - component: {fileID: 958450406}
+  - component: {fileID: 958450405}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &958450404
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958450403}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1721355269}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 42.100006, y: 651.4}
+  m_SizeDelta: {x: 904.5, y: 167.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &958450405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958450403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: fd99c754ae484e84ba0ccc64b4cdf61a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &958450406
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958450403}
+  m_CullTransparentMesh: 0
 --- !u!1 &969486434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2388,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1721355269}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3634,12 +3700,12 @@ RectTransform:
   m_Children:
   - {fileID: 606392209}
   m_Father: {fileID: 1721355269}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 700, y: -64}
-  m_SizeDelta: {x: 79, y: 61.5}
+  m_AnchoredPosition: {x: 707.9, y: -70.1}
+  m_SizeDelta: {x: 94.7, y: 73.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543950951
 MonoBehaviour:
@@ -3713,7 +3779,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 01e584fc9ff6d4a969400e68b97befc4, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3830,20 +3896,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyableItems:
-  - {fileID: 1008208271890090, guid: 6784746c8c4eaff4e9d1d44ed4cb7d93, type: 2}
-  - {fileID: 1008208271890090, guid: e2efa01beb5bf974e8b82f56cd1fa5e2, type: 2}
-  - {fileID: 1008208271890090, guid: 5a5b271341ca90a4587fbb2ed40ebccc, type: 2}
-  - {fileID: 1008208271890090, guid: 9681f84700a36894d862121e704d3f6c, type: 2}
-  - {fileID: 1008208271890090, guid: e1038f641a4ab464e93316ce04b73b39, type: 2}
-  - {fileID: 1008208271890090, guid: 9e721d1a9c8b9c64dbddb2f6cf42dc36, type: 2}
-  - {fileID: 1008208271890090, guid: ffec284483054ef4bbf6accd05651826, type: 2}
-  - {fileID: 1008208271890090, guid: 2130446160f98604ea102733fc330826, type: 2}
-  - {fileID: 1008208271890090, guid: 94960483d21ff28419fec847d1042b4d, type: 2}
-  - {fileID: 1008208271890090, guid: a815bf127ae890c4aabbd32d4aeeb1a2, type: 2}
-  - {fileID: 1008208271890090, guid: 2f7c472b344d6b84c8068219354344ed, type: 2}
-  - {fileID: 1008208271890090, guid: bb394024894167b488bd6f137d034cbe, type: 2}
-  - {fileID: 1008208271890090, guid: 4c825e0ccf2db024a9d6119c468a30c4, type: 2}
-  - {fileID: 1008208271890090, guid: ec799623d81e6424e850869337980fc4, type: 2}
+  - {fileID: 1287116009684890, guid: 8817eac8789abd941b526ca9c59fecc4, type: 2}
+  - {fileID: 1287116009684890, guid: 51ec74461a56f3b48aba9d8d244e611a, type: 2}
+  - {fileID: 1287116009684890, guid: 86d3d72ac0dce8342a8fac63128a8ef7, type: 2}
+  - {fileID: 1287116009684890, guid: ff1adb479650d07449efc1dd47788e1d, type: 2}
+  - {fileID: 1287116009684890, guid: 7e21c2147d30aae49bd404e5dcbfd247, type: 2}
+  - {fileID: 1287116009684890, guid: 279b196835f991e4c92af67c62ae40fe, type: 2}
+  - {fileID: 1287116009684890, guid: 6d4f96846d7ff4b4b8f51405a83ec888, type: 2}
+  - {fileID: 1287116009684890, guid: 129b4409f0304ac47b43082367aef831, type: 2}
+  - {fileID: 1287116009684890, guid: 90639c4bbe930c74fa932cf33ab16e3d, type: 2}
+  - {fileID: 1287116009684890, guid: 07ed078670ab3e14ea2c2e6d81c29f2f, type: 2}
+  - {fileID: 1287116009684890, guid: 29814b150c6f82240ac1173a6e24fa32, type: 2}
+  - {fileID: 1287116009684890, guid: 8d6630a0a6977f54eaa031ba62caf298, type: 2}
+  - {fileID: 1287116009684890, guid: f8c9f0a937cc2f94ca20c09c4d7f17c7, type: 2}
+  - {fileID: 1287116009684890, guid: 2f4e5fcc2b1fc9143b4f81053471bd80, type: 2}
   purchasedItems: []
   buyableCustItems: []
   custItems: []
@@ -3861,10 +3927,11 @@ MonoBehaviour:
   exit_Buy_Btn: {fileID: 1543950949}
   buyableItem: {fileID: 1008208271890090, guid: 2807c7050b2b3b54d832093d326f8007,
     type: 2}
-  purchasedItem: {fileID: 1989782141929398, guid: 11b0bfbf03cc05048853f5302d8f5d1e,
+  purchasedItem: {fileID: 1287116009684890, guid: 4ea901734da5c42488762978671e364f,
     type: 2}
   dividerPrefab: {fileID: 1869548861376844, guid: 2d5bf828ad6b8894d9b59e08ec7ff641,
     type: 2}
+  buyMenuCash: {fileID: 57950616}
   cust_Menu: {fileID: 1823788150}
   exit_Cust_Btn: {fileID: 442776373}
   buyMenuContent: {fileID: 969486434}
@@ -4060,9 +4127,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1543950950}
-  - {fileID: 57950615}
   - {fileID: 969486435}
+  - {fileID: 958450404}
+  - {fileID: 57950615}
+  - {fileID: 1543950950}
   m_Father: {fileID: 647555213}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

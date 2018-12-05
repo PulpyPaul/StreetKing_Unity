@@ -47,12 +47,21 @@ public class PurchasedItem : MonoBehaviour {
 		foreach (Text objTexts in texts) {
 			if (objTexts.name == "Timer") {
 				objTexts.text = hours+ "h " +minutes+ "m " +(int)seconds+ "s ";
-				return;
+				continue;
+			}
+
+			if (objTexts.name == "Cost") {
+				objTexts.text = "$" + currItem.SellLow;
+			}
+
+			if (objTexts.name == "Name") {
+				objTexts.text = currItem.Name;
 			}
 		}
 	}
 
 	void UpdateTimer() {
+		
 		if (hours <= 0 && minutes <= 0 && seconds <= 0) {
 			CancelInvoke ();
 			InventoryManager.instance.inventory.Add (currItem);
