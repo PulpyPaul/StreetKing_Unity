@@ -161,6 +161,14 @@ public class UIManager : MonoBehaviour {
 				sell_Btns [j].GetComponentInChildren<Text> ().text = Random.Range (InventoryManager.instance.inventory [i].SellLow, InventoryManager.instance.inventory [i].SellHigh + 1).ToString();
 			}
 
+			Text[] subTexts = sell_Prefab.GetComponentsInChildren<Text> ();
+
+			for (int j = 0; j < subTexts.Length; j++) {
+				if (subTexts[j].name == "Name") {
+					subTexts [j].text = InventoryManager.instance.inventory [i].Name;
+				}
+			}
+
 			sell_Prefab.GetComponent<SellItem> ().ItemID = InventoryManager.instance.inventory [i].ID;
 
 			sellItems.Add (sell_Prefab);

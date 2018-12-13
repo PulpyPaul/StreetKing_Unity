@@ -14,7 +14,7 @@ public class MoneyManager : MonoBehaviour {
 		else if (instance != this)
 			Destroy (gameObject);
 
-		totalMoney = 25;
+		totalMoney = 2000;
 	}
 
 	// Use this for initialization
