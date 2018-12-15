@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour {
 	public void ToggleHomeButtons() {
 		sell_Screen_Btn.SetActive (!sell_Screen_Btn.activeSelf);
 		buy_Screen_Btn.SetActive (!buy_Screen_Btn.activeSelf);
-		cust_Screen_Btn.SetActive (!cust_Screen_Btn.activeSelf);
+		//cust_Screen_Btn.SetActive (!cust_Screen_Btn.activeSelf);
 	}
 
 	// ----------------------------- BUY SCREEN Functions -------------------------
